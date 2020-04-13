@@ -6,7 +6,13 @@
     mysqli_select_db($conn, "tubes_193040072") or die("database salah");
 
     // query mengambil objek dari tabel di dalam database
-    $result = mysqli_query($conn, "SELECT * FROM makanan")
+    $result = mysqli_query($conn, "SELECT * FROM makanan");
+
+    // menghubungkandengan file php lainnya
+    require 'php/functions.php';
+
+    // melakukan query
+    $makanan = query("SELECT * FROM makanan");
 ?>
 <!DOCTYPE html>
 <html lang="en">
