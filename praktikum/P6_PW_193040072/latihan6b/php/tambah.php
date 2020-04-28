@@ -34,19 +34,19 @@ if(isset($_POST['tambah'])) {
             </li>
             <li>
                 <label for="nama">Nama Makanan :</label><br>
-                <input type="text" name="nama" name="nama" id="nama" required><br><br>
+                <input type="text" name="nama_makanan" id="nama" required><br><br>
             </li>
             <li>
                 <label for="rasa">Varian Rasa :</label><br>
-                <input type="text" name="rasa" name="rasa" id="rasa" required><br><br>
+                <input type="text" name="varian_rasa" id="rasa" required><br><br>
             </li>
             <li>
                 <label for="exp">Exp :</label><br>
-                <input type="text" name="exp" name="exp" id="exp" required><br><br>
+                <input type="text" name="kadaluarsa" id="exp" required><br><br>
             </li>
             <li>
                 <label for="stok">Stok :</label><br>
-                <input type="text" name="stok" name="stok" id="stok" required><br><br>
+                <input type="text" name="stok" id="stok" required><br><br>
             </li>
             <br>
             <button type="submit" name="tambah">Tambah Data</button>

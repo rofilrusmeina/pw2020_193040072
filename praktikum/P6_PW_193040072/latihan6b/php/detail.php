@@ -55,7 +55,7 @@ $makanan = query("SELECT * FROM makanan WHERE id = $id") [0];
             <td><p><?= $makanan["varian_rasa"]; ?></p></td>
             </tr>
             <tr>
-            <td><p><?= $makanan["exp"]; ?></p></td>
+            <td><p><?= $makanan["kadaluarsa"]; ?></p></td>
             </tr>
             <tr>
             <td><p><?= $makanan["stok"]; ?></p></td>

@@ -27,7 +27,7 @@ function tambah($data)
     $img = htmlspecialchars($data['img']);
     $nama = htmlspecialchars($data['nama_makanan']);
     $rasa = htmlspecialchars($data['varian_rasa']);
-    $exp = htmlspecialchars($data['exp']);
+    $exp = htmlspecialchars($data['kadaluarsa']);
     $stok = htmlspecialchars($data['stok']);
 
     $query = "INSERT INTO makanan
@@ -49,7 +49,7 @@ function hapus($id)
 }
 
 // fungsi untuk mengubah data
-function ubah($id)
+function ubah($data)
 {
     $conn = koneksi();
 
@@ -57,7 +57,7 @@ function ubah($id)
     $img = htmlspecialchars($data['img']);
     $nama = htmlspecialchars($data['nama_makanan']);
     $rasa = htmlspecialchars($data['varian_rasa']);
-    $exp = htmlspecialchars($data['exp']);
+    $exp = htmlspecialchars($data['kadaluarsa']);
     $stok = htmlspecialchars($data['stok']);
 
     $query = "UPDATE makanan
@@ -65,7 +65,7 @@ function ubah($id)
             img = '$img',
             nama = '$nama',
             rasa = '$rasa',
-            exp = '$exp',
+            kadaluarsa = '$exp',
             stok = '$stok',
             WHERE id = '$id'
             ";

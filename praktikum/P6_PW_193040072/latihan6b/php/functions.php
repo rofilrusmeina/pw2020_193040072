@@ -27,7 +27,7 @@ function tambah($data)
     $img = htmlspecialchars($data['img']);
     $nama = htmlspecialchars($data['nama_makanan']);
     $rasa = htmlspecialchars($data['varian_rasa']);
-    $exp = htmlspecialchars($data['exp']);
+    $exp = htmlspecialchars($data['kadaluarsa']);
     $stok = htmlspecialchars($data['stok']);
 
     $query = "INSERT INTO makanan

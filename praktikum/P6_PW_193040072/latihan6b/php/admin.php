@@ -64,7 +64,7 @@ $makanan = query("SELECT * FROM makanan");
                 <td><img src ='../assets/img/<?= $mkn['img']; ?>'></td>
                 <td><?= $mkn['nama_makanan']; ?></td>
                 <td><?= $mkn['varian_rasa']; ?></td>
-                <td><?= $mkn['exp']; ?></td>
+                <td><?= $mkn['kadaluarsa']; ?></td>
                 <td><?= $mkn['stok']; ?></td>
             </tr>
             <?php $i++; ?>

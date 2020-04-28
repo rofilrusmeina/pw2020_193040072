@@ -34,28 +34,28 @@ if(isset($_POST['ubah'])) {
         <ul>
             <li>
                 <label for="img">Gambar :</label><br>
-                <input type="text" name="img" name="img" id="img" required value="<?= $mkn['img']; ?>"><br><br>
+                <input type="text" name="img" id="img" required value="<?= $mkn['img']; ?>"><br><br>
             </li>
             <li>
                 <label for="nama">Nama Makanan :</label><br>
-                <input type="text" name="nama" name="nama" id="nama" required value="<?= $mkn['nama_makanan']; ?>"><br><br>
+                <input type="text" name="nama_makanan" id="nama" required value="<?= $mkn['nama_makanan']; ?>"><br><br>
             </li>
             <li>
                 <label for="rasa">Varian Rasa :</label><br>
-                <input type="text" name="rasa" name="rasa" id="rasa" required value="<?= $mkn['varian_rasa']; ?>"><br><br>
+                <input type="text" name="varian_rasa" id="rasa" required value="<?= $mkn['varian_rasa']; ?>"><br><br>
             </li>
             <li>
                 <label for="exp">Exp :</label><br>
-                <input type="text" name="exp" name="exp" id="exp" required value="<?= $mkn['exp']; ?>"><br><br>
+                <input type="text" name="kadaluarsa" id="exp" required value="<?= $mkn['kadaluarsa']; ?>"><br><br>
             </li>
             <li>
                 <label for="stok">Stok :</label><br>
-                <input type="text" name="stok" name="stok" id="stok" required value="<?= $mkn['stok']; ?>"><br><br>
+                <input type="text" name="stok" id="stok" required value="<?= $mkn['stok']; ?>"><br><br>
             </li>
             <br>
             <button type="submit" name="ubah">Ubah Data</button>
             <button type="submit">
-                <a href="../index.php" style="text-decoration: none; color: black;">Kembali</a>
+                <a href="admin.php" style="text-decoration: none; color: black;">Kembali</a>
             </button>
         </ul>
     </form>
