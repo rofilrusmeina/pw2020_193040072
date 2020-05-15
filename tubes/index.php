@@ -191,6 +191,34 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="row mb-4">
+                <div class="col-md">
+                  <div class="card" style="background-color: black; color: white;">
+                    <img src="aset/img/sedan.jpg" class="card-img-top" alt="card image cap">
+                    <div class="card-body">
+                    <p class="card-text">Miniatur mobil sedan yang sangat menarik dengan warna kuning mencolok</p>
+                    </div>
+                  </div>
+                </div>
+
+               <div class="col-md">
+                  <div class="card" style="background-color: black; color: white;">
+                    <img src="aset/img/lego.jpg" class="card-img-top" alt="card image cap">
+                    <div class="card-body">
+                    <p class="card-text">Sepasang karakter lego yang sedang kasmaran</p>
+                    </div>
+                  </div>
+                </div>
+
+               <div class="col-md">
+                  <div class="card" style="background-color: black; color: white;">
+                    <img src="aset/img/katak.jpg" class="card-img-top" alt="card image cap">
+                    <div class="card-body">
+                    <p class="card-text">Sebuah mobil VW dengan pengambilan gambar yang sangat baik membuat foto sangat menarik</p>
+                    </div>
+                  </div>
+                </div>
               </div>  
             </div>
           </div>
