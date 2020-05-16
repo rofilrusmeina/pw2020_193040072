@@ -71,9 +71,13 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#portofolio">Portofolio</a>
-          <a class="nav-item nav-link" href="#about">About & Skills</a>
-          <a class="nav-item nav-link" href="#contact">Contact</a>
+          <a class="nav-item nav-link" href="#portofolio">Menu</a>
+          <a class="nav-item nav-link" href="#about">Best Seller</a>
+          <a class="nav-item nav-link" href="#contact">Contact & Login</a>
+          <form class="form-inline" action="" method="GET" class="add">
+            <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="cari">Search</button>
+          </form>
         </div>
       </div>
       </div>
@@ -138,84 +142,19 @@
                <div class="row mb-4">
                 <div class="col-md">
                   <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/mini.jpg" class="card-img-top" alt="card image cap">
+                  <img class="card-img-top" src="assets/img/<?= $tubes['img']; ?>" alt="Card image cap">
                     <div class="card-body">
-                    <p class="card-text">Miniatur mobil VW yang sangat artistik di atas pasir.</p>
-                    </div>
-                  </div>
-                </div>
-
-               <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/3.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Miniatur mobil VW dengan cat Colorful membuatnya terliahat sangat menarik</p>
-                    </div>
-                  </div>
-                </div>
-
-               <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/vw.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Sebuah miniatur mobil VW kodok yang sedang di perbaiki oleh karakter lego</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row mb-4">
-                <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/sedan.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Miniatur mobil sedan yang sangat menarik dengan warna kuning mencolok</p>
-                    </div>
-                  </div>
-                </div>
-
-               <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/lego.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Sepasang karakter lego yang sedang kasmaran</p>
-                    </div>
-                  </div>
-                </div>
-
-               <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/katak.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Sebuah mobil VW dengan pengambilan gambar yang sangat baik membuat foto sangat menarik</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-4">
-                <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/sedan.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Miniatur mobil sedan yang sangat menarik dengan warna kuning mencolok</p>
-                    </div>
-                  </div>
-                </div>
-
-               <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/lego.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Sepasang karakter lego yang sedang kasmaran</p>
-                    </div>
-                  </div>
-                </div>
-
-               <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                    <img src="aset/img/katak.jpg" class="card-img-top" alt="card image cap">
-                    <div class="card-body">
-                    <p class="card-text">Sebuah mobil VW dengan pengambilan gambar yang sangat baik membuat foto sangat menarik</p>
+                       <p>
+                       <?php foreach ($tubes as $tbs) : ?>
+                          <p>
+                              <a href="php/detail.php?id=<?= $tbs ['id']?>">
+                                  <?= $tbs["img"] ?>
+                                  <br>
+                                  <?= $tbs["nama"] ?>
+                              </a>
+                          </p>
+                       <?php endforeach; ?>
+                      </p>
                     </div>
                   </div>
                 </div>
