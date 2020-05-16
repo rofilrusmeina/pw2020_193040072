@@ -40,7 +40,7 @@ $makanan = query("SELECT * FROM makanan WHERE id = $id") [0];
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
     <table border="1px solid black">
         <tr>
         <td><div class="gambar">
