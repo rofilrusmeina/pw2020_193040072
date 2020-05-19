@@ -1,4 +1,4 @@
-  <?php 
+<?php 
     // Melakukan Koneksi ke database
     $conn = mysqli_connect("localhost", "root", "") or die("Koneksi ke DB gagal");
 
@@ -6,26 +6,25 @@
     mysqli_select_db($conn, "tubes_193040072") or die("database salah");
 
     // query mengambil objek dari tabel di dalam database
-    $result = mysqli_query($conn, "SELECT * FROM tubes");
+    $result = mysqli_query($conn, "SELECT * FROM makanan");
 
     // menghubungkandengan file php lainnya
     require 'php/functions.php';
 
     // melakukan query
-    $tubes = query("SELECT * FROM tubes");
+    $makanan = query("SELECT * FROM makanan");
 
     if (isset($_GET['cari'])) {
         $keyword = $_GET['keyword'];
-        $makanan = query("SELECT * FROM tubes WHERE
+        $makanan = query("SELECT * FROM makanan WHERE
                     nama_makanan LIKE '%$keyword%' OR
                     varian_rasa LIKE '%$keyword%' OR
                     kadaluarsa LIKE '%$keyword%' OR
                     stok LIKE '%$keyword%' ");
     } else {
-        $tubes = query("SELECT * FROM tubes");
+        $makanan = query("SELECT * FROM makanan");
     }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,269 +33,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- My CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Rock+Salt&display=swap" rel="stylesheet">
-
-    <title>Portofolio</title>
-    <style>
-      .jumbotron1 {
-     background-image: url(assets/img/header.jpg);
-     background-repeat: no-repeat;
-     background-size: cover;
-     height: 400px;
-     background-position: 0 -170px;
-     border: 1px solid black;
- }
-
- .jumbotron1 img {
-     width: 200px;
-     margin-bottom: -400px;
-     z-index: 999;
- }
-    </style>
+    <title>Hello, world!</title>
   </head>
   <body>
-    
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container">
-      <a class="navbar-brand" href="#">My Salad</a>
+      <a class="navbar-brand" href="#">Grosir Online</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="icon"><img src="aset/img/togle.png"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#portofolio">Menu</a>
-          <a class="nav-item nav-link" href="#about">Best Seller</a>
-          <a class="nav-item nav-link" href="#contact">Contact & Login</a>
+          <a class="nav-item nav-link" href="php/login.php"><h4>Login</h4></a>
           <form class="form-inline" action="" method="GET" class="add">
-            <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="cari">Search</button>
+            <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="cari">Search</button>
           </form>
         </div>
       </div>
       </div>
     </nav>
-    <!-- Akhir Navbar -->
+    <div class="container-fluid">
+            <div class="row">
+                <?php foreach ($makanan as $mkn) : ?>
+                    <div class="col-md-4">
+                        <p class="nama">
+                            <div class="card mt-3  mb-4 ml-5" style="width: 18rem;">
+                                <img class="card img-fluid max-foto" src="assets/img/<?= $mkn['img']; ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $mkn['nama_makanan']; ?></h5>
+                                    <a href="php/detail.php?id=<?= $mkn['id']; ?>" class="btn btn-primary">Detail</a>
+                                </div>
+                            </div>
 
-
-
-    <!-- Jumbotron -->
-    <div class="jumbotron1 jumbotron-fluid">
-      <div class="container text-center">               
-      </div>
-    </div>
-    <!-- Akhir Jumbotron -->
-
-
-
-
-    <!-- Info Panel -->
-     <!-- Container -->
-    <div class="container text-center">
-      <div class="row justify-content-center">
-        <div class="col-8 info-panel">
-          <div class="row">
-            <div class="col-lg">
-              <img src="assets/img/logo.jpg" class="rounded-circle img-thumbnail profil">
-              <h4>My Salad</h4>
-              <?= "<h6>Salad Buah Pilihan Terbaik</h6>" ?>
-              <p><span>BORN</span> : 25 Mei 2000</p>
-              <p><span>EMAIL</span> : ropilll25@gmail.com</p>
-              <p><span>WA</span> : 082129754810</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col sosmed">
-              <a href="https://www.facebook.com/upilhungkul"><img src="assets/img/fb.png"></a>
-              <a href="https://github.com/rofilrusmeina"><img src="assets/img/gh.png"></a>
-              <a href="https://www.instagram.com/ropilllll/"><img src="assets/img/ig.png"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Akhir Info Panel -->
-
-
-
-
-    <!-- Portofolio -->
-    <section class="portofolio pt-1" id="portofolio">
-     <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2>Menu</h2>
-        </div>
-      </div>
-      </div>
-      <div class="">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-               <div class="row mb-4">
-                <div class="col-md">
-                  <div class="card" style="background-color: black; color: white;">
-                  <img class="card-img-top" src="assets/img/<?= $tubes['img']; ?>" alt="Card image cap">
-                    <div class="card-body">
-                       <p>
-                       <?php foreach ($tubes as $tbs) : ?>
-                          <p>
-                              <a href="php/detail.php?id=<?= $tbs ['id']?>">
-                                  <?= $tbs["img"] ?>
-                                  <br>
-                                  <?= $tbs["nama"] ?>
-                              </a>
-                          </p>
-                       <?php endforeach; ?>
-                      </p>
+                        </p>
                     </div>
-                  </div>
-                </div>
-              </div>  
+                <?php endforeach; ?>
             </div>
-          </div>
         </div>
-      </div>     
-    </section>
-    <!-- Akhir Portofolio -->
-
-
-
-
-
-
-    <!-- About Me -->
-    <section class="about" id="about">
-     <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2>AboutMe</h2>
-        </div>
-        <div class="col-8">
-          <p>
-           I am a student of Pasundan Bandung University class of 2019. I was 19 years old, I was born in Bandung precisely on May 25 in 2000. I graduated from high school Angkasa Lanud Huseinsastranegara bandung. I have expertise in the field of html & css web web programmer and web design. my hobby is eating sleep and pooping.
-         </p>
-        </div>
-      </div>
-      </div>
-    </section>
-    <!-- Akhir About Me -->
-
-
-
-
-    <!-- Skills -->
-    <section class="skill about" id="skill">
-     <div class="container">
-      <div class="row">               
-        <div class="col">
-          <h2>Best Seller</h2>
-          </div>
-          <div class="col-8">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">HTML&CSS</div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Web Programmer</div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Database</div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Web Designer</div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Copy & Paste</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Akhir Skills -->
-
-
-    <!-- Contact -->
-    <section id="contact" class="contact mb-5">
-    <div class="jumbotron3 jumbotron-fluid">
-    <div class="container">
-      <div class="row pt-4 mb-4">
-        <div class="col text-center">
-          <h2>Login</h2>
-        </div>  
-      </div> 
-    
-  <div class="row justify-content-center">
-    <div class="col-lg-4">
-      <div class="card text-white bg-primary mb-3 text-center">
-        <div class="card-body">
-        <h5 class="card-title">Contact Me</h5>
-        <p class="card-text">Wa : 082129754810 <br> Email : ropilll25@gmail.com</p>
-        </div>
-      </div>
-      <h3>Location</h3>
-      <div id="map-container" class="map-container">
-        <div class="row">
-          <div class="col">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9277490740456!2d107.56257601431695!3d-6.899244669433256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e5d07f3a8221%3A0xb2182bd05458f441!2sGolongan%20II%20Jl.%20Sapta%20Marga%2C%20Campaka%2C%20Kec.%20Andir%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1576435652438!5m2!1sid!2sid" width="350" height="220" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div>
-        </div>
-      </div>
-    </div>
-    <!-- Akhir Contact -->
-
-    <div class="col-lg-6">
-    <form>
-      <div class="form-group">
-        <label for="nama">Name</label>
-        <input type="text" class="form-control" id="nama">
-      </div>
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="text" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="notelp">No Phone</label>
-        <input type="text" class="form-control" id="notelp">
-      </div>
-      <div class="form-group">
-        <label for="pesan">Massage</label>
-        <textarea name="pesan" id="pesan" class="form-control"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div> 
-    </form>
-    </div>
-  </div>  
-
-  </div>
-  </div>  
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="row pt-3">
-        <div class="col text-center">
-          <p>Created By KobaM</p>
-        </div>  
-      </div>  
-    </div>  
-  </footer>
-
-
-
-
+   <br>
+     
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
